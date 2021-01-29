@@ -1,7 +1,9 @@
 <img [src]="book.image" [width]="80">
-<h4> {{ book.name }} </h4>
-<p> {{ book.publisher }} <br>
-    {{ book.publishedDate }}
+<h4> {{ book.name | uppercase }} </h4>
+<p> {{ book.publisher | titlecase }} <br>
+    {{ book.publishedDate | date:'medium'}}
+    {{ book.publishedDate | date:'shorTime'}}
+    {{ book.publishedDate | date:'d/M/yyyy h:mm a'}}
 </p>
 <p>
     <button (click)="onClickBook();">Elegir</button>

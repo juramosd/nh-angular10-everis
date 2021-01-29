@@ -9,7 +9,10 @@ import { BookExampleComponent } from './components/book-example/book-example.com
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { BookListExampleComponent } from './components/book-list-example/book-list-example.component';
 import { BookSelectCountComponent } from './components/book-select-count/book-select-count.component';
+import { BookCountSelectedComponent } from './components/book-count-selected/book-count-selected.component';
 
+import {CustomNamePipe} from './components/book-example/book-name.pipe';
+import { PublisherPrettyPipe } from './component/book-example/publisher-pretty.pipe'
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { BookSelectCountComponent } from './components/book-select-count/book-se
     HomePageComponent,
     BookListExampleComponent,
     BookSelectCountComponent,
+    BookCountSelectedComponent,
+    CustomNamePipe,
+    PublisherPrettyPipe,
   ],
   imports: [
     BrowserModule,

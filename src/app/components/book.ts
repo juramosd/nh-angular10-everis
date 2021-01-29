@@ -7,3 +7,8 @@ export interface IBook {
   publishedDate: string;
   publisher: string;
 }
+
+export interface IBookSelected{
+    name: string;
+    cantidad: number;
+}
