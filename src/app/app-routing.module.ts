@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ExamplePageComponent } from './pages/example-page/example-page.component';
-import { TemplateFormPageComponent } from './pages/template-form-page/template-form-page.component';
+import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    loadChildren: () => import('./modules/home/home.module').then(m=>m.HomeModule)
   },
   {
-    path: 'example',
-    component: ExamplePageComponent
+    path: 'books',
+    loadChildren: () => import('./modules/books/books.module').then(m=>m.BooksModule)
   },
   {
-    path: 'example/forms',
-    component: TemplateFormPageComponent
-  }
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m=>m.AdminModule)
+  },
+  {
+    path: 'example', 
+    loadChildren: () => import('./modules/example/example.module').then(m=>m.ExampleModule)
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent
+  },
 ];
 
 @NgModule({
