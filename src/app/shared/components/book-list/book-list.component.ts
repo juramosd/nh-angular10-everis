@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Book } from '../../interfaces/book';
+import { BookMockService } from '../../services/book/book-mock.service';
 
 @Component({
   selector: 'app-book-list',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-
-  constructor() { }
+  
+  @Input() isFeatured: boolean = false;
+  books: Book[];
+  constructor(
+    private bookService: BookMockService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchBooks();
   }
 
+  fetchBooks(): void{     
+    this.books = this.isFeatured ? this.bookService.getFeaturedBooks(): this.bookService.getBooks();
+  }
 }

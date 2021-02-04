@@ -1,2 +1,6 @@
-<p>book-list works!</p>
-<app-book-short></app-book-short>
+<div class="row">
+    <div class="col-md-4" *ngFor="let book of books">
+
+        <app-book-short [book]="book"></app-book-short>
+    </div>
+</div>
